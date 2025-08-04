@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1beta1
+kind: Resource
+metadata:
+  name: aws-acc-2
+spec:
+  type: developer-project
+  owner: user1
+  dependsOn:
+    - resource:dv-project-1

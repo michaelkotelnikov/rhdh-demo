@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1beta1
+kind: Resource
+metadata:
+  name: dv-project-2
+  description: Playground project for Dev & Ops experiments
+spec:
+  type: developer-project
+  owner: user1 

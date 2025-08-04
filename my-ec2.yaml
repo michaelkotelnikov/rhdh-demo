@@ -3,7 +3,7 @@ kind: Resource
 metadata:
   name: my-ec2
   annotations:
-    aws.amazon.com/resource-id: 201010101
+    aws.amazon.com/resource-id: '201010101'
 spec:
   type: ec2
   owner: user1

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1beta1
+kind: Resource
+metadata:
+  name: my-ec4
+  annotations:
+    resource-id: "201010102"
+spec:
+  type: ec2
+  owner: user1
+  dependsOn:
+    - component: aws-acc-10

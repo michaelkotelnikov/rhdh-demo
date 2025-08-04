@@ -1,0 +1,7 @@
+apiVersion: backstage.io/v1beta1
+kind: Resource
+metadata:
+  name: dv-project-1
+spec:
+  type: developer-project
+  owner: user1

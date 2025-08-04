@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1beta1
 kind: Component
 metadata:
-  name: aws-acc-1
+  name: aws-acc-10
   description: Personal sandbox AWS account
   annotations:
     aws.amazon.com/account-id: "123456789012"

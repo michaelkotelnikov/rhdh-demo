@@ -8,4 +8,4 @@ spec:
   type: ec2
   owner: user1
   dependsOn:
-    - component: aws-acc-10
+    - component:aws-acc-10

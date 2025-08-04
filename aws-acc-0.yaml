@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1beta1
+kind: Resource
+metadata:
+  name: aws-acc-0
+  description: Personal sandbox account
+  annotations:
+    aws.amazon.com/account-id: "123456789012"
+spec:
+  type: aws-account
+  owner: user:user1
+relations:
+  - type: partOf
+    target:
+      kind: Resource
+      namespace: default
+      name: dv-project-2

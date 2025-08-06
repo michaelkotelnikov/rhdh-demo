@@ -3,12 +3,16 @@ name: Print Hi
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+  workflow_dispatch:
+    inputs:
+      custom_message:
+        description: Message to print
+        default: hi
+        required: false
+        
 jobs:
   say-hi:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hi
-        run: echo "hi"
+      - name: Say something
+        run: echo "${{ github.event.inputs.custom_message || 'hi' }}"

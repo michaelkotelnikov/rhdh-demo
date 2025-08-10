@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1beta1
+kind: System
+metadata:
+  name: sys-project
+  title: Project
+  description: Project
+spec:
+  owner: user1

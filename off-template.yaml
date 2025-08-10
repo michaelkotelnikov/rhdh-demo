@@ -1,0 +1,9 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: my-template
+  title: My Template
+  tags: ['official']
+spec:
+  owner: user1
+  type: service

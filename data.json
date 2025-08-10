@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Official software templates",
+    "isExpanded": true,
+    "links": [
+      { "label": "Java Service", "url": "/create/templates/default/service-java" },
+      { "label": "Node API",     "url": "/create/templates/default/node-api" }
+    ]
+  },
+  {
+    "title": "Unofficial software templates",
+    "isExpanded": true,
+    "links": [
+      { "label": "Playground Template", "url": "/create/templates/default/playground" }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aws-account-michael
+  title: Michael AWS Account
+  description: AWS Account
+spec:
+  type: service
+  lifecycle: production
+  owner: user1
+  system: sys-project

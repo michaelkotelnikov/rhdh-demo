@@ -1,0 +1,20 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: unofficial-template
+  title: Create Community Python Application
+  tags: ['unofficial']
+spec:
+  owner: user1
+  type: service
+  parameters:
+    properties:
+      name:
+        type: string
+        default: world
+  steps:
+    - id: log
+      name: Log
+      action: debug:log
+      input:
+        message: "Hello, ${{ parameters.name }}!"

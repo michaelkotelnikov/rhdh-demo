@@ -1,0 +1,31 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: verify-acme-example
+  title: Verify Dynamic Plugin (acme:example)
+  description: Calls the acme:example action from the dynamic plugin to verify it works
+spec:
+  owner: platform-team
+  type: service
+  parameters:
+    - title: Quick Check
+      required: [myParameter]
+      properties:
+        myParameter:
+          title: Example parameter
+          type: string
+          description: "Must NOT be 'foo' (the action will throw if it is)"
+          default: "hello-from-template"
+  steps:
+    - id: ping
+      name: Run acme:example
+      action: acme:example
+      input:
+        myParameter: ${{ parameters.myParameter }}
+    - id: done
+      name: Done
+      action: debug:log
+      input:
+        message: 'acme:example completed successfully.'
+  output:
+    message: 'Template finished.'

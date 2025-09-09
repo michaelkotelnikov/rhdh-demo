@@ -1,0 +1,44 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: gitlab-group-membership-check
+  title: GitLab Group Membership Check
+  description: Calls acme:example with a manually entered repoUrl and GitLab token
+spec:
+  owner: platform-team
+  type: service
+
+  parameters:
+    - title: Inputs
+      required: [repoUrl, token]
+      properties:
+        repoUrl:
+          title: Repository URL (full string)
+          type: string
+          description: >
+            Enter EXACTLY the repo location string your action expects.
+            Format: <gitlab-host>?owner=<groupOrSubgroupPath>&repo=<projectName>
+            Example: gitlab.mycorp.local?owner=platform/team&repo=my-service
+          default: ""
+        token:
+          title: GitLab access token (api scope)
+          type: string
+          description: Paste a Personal Access Token with 'api' scope
+          ui:widget: password
+
+  steps:
+    - id: verify
+      name: Verify group membership
+      action: acme:example
+      input:
+        repoUrl: ${{ parameters.repoUrl }}
+        token: ${{ parameters.token }}
+
+    - id: done
+      name: Done
+      action: debug:log
+      input:
+        message: "Validation step finished."
+
+  output:
+    message: "Completed membership validation."

@@ -1,0 +1,34 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: fetch-from-url
+  title: Fetch & Print (acme:example)
+  description: Calls the acme:example action to fetch text from a URL and print it
+spec:
+  owner: platform-team
+  type: service
+  parameters:
+    - title: URL to fetch
+      required: [url]
+      properties:
+        url:
+          title: URL
+          type: string
+          description: Plain-text URL to fetch
+          default: "https://raw.githubusercontent.com/michaelkotelnikov/rhdh-demo/refs/heads/master/michael"
+  steps:
+    - id: fetch
+      name: Fetch with acme:example
+      action: acme:example
+      input:
+        url: ${{ parameters.url }}
+    - id: show
+      name: Show content
+      action: debug:log
+      input:
+        message: |
+          === BEGIN CONTENT ===
+          ${{ steps.fetch.output.content }}
+          === END CONTENT ===
+  output:
+    content: ${{ steps.fetch.output.content }}

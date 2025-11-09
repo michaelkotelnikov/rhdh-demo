@@ -1,0 +1,24 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: debug-log-template
+  title: Debug Log Template
+  description: A template for logging debug messages
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Log Message
+      required:
+        - message
+      properties:
+        message:
+          title: Message
+          type: string
+          description: The debug message to log
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      input:
+        message: ${{ parameters.message }}

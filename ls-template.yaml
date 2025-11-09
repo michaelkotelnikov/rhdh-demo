@@ -1,0 +1,29 @@
+name: Debug Logging Template
+description: A template for logging debug messages
+version: 1.0.0
+
+actions:
+  - name: debug-log
+    type: debug:log
+    description: Log a debug message
+    inputs:
+      - name: message
+        description: The debug message to log
+        type: string
+      - name: log-level
+        description: The log level (e.g. debug, info, warn, error)
+        type: string
+        default: debug
+    outputs:
+      - name: log-output
+        description: The logged message
+
+pipeline:
+  - name: debug-log-pipeline
+    detectMultilineErrors: true
+    inputRefs:
+      - message
+    outputRefs:
+      - log-output
+    filterRefs:
+      - audit-logs-only

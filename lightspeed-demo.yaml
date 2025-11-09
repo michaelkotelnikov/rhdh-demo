@@ -1,0 +1,24 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: print-message-template
+  title: Print Message Template
+  description: A template that prints a message to the console.
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Message
+      required:
+        - message
+      properties:
+        message:
+          title: Message
+          type: string
+          description: The message to print.
+  steps:
+    - id: print-message
+      name: Print Message
+      action: debug:log
+      properties:
+        message: ${{ parameters.message }}

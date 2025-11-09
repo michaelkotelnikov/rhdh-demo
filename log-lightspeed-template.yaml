@@ -1,0 +1,24 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: log-template
+  title: Log Input
+  description: A template that logs a user-provided string
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Input String
+      required:
+        - name
+      properties:
+        name:
+          title: Input String
+          type: string
+          description: The string to be logged
+  steps:
+    - id: log-input
+      name: Log Input
+      action: debug:log
+      input:
+        message: ${{ parameters.name }}

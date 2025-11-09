@@ -1,0 +1,37 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: template-name
+  title: Example Template bh
+  description: An example template for scaffolder.
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Message
+      required:
+        - name
+      properties:
+        name:
+          title: Message
+          type: string
+          description: The message to log
+    - title: Log Level
+      required:
+        - level
+      properties:
+        level:
+          title: Log Level
+          type: string
+          description: The log level to use (debug, info, warn, error, critical)
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      properties:
+        message: ${{ parameters.message }}
+        level: ${{ parameters.level }}
+  output:
+    links:
+      - title: Log Output
+        url: ${{ steps['log-message'].output.log }}

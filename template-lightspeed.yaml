@@ -1,0 +1,33 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: log-message-template-lightspeed
+  title: Log Message Template LightSpeed
+  description: A template that logs a message from a user using the debug:log action
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Message
+      required:
+        - name
+      properties:
+        name:
+          title: Message
+          type: string
+          description: The message to be logged
+    - title: Log Level
+      required:
+        - level
+      properties:
+        level:
+          title: Log Level
+          type: string
+          description: The log level (e.g., debug, info, warn, error)
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      input:
+        message: ${{ parameters.name }}
+        level: ${{ parameters.level }}

@@ -1,0 +1,28 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: log-message-template
+  title: Log Message Template
+  description: A template for logging a message from a user
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  parameters:
+    - title: Log Message
+      required:
+        - message
+      properties:
+        message:
+          title: Message
+          type: string
+          description: The message to log
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      properties:
+        message: ${{ parameters.message }}
+  output:
+    links:
+      - title: Log Message
+        url: ${{ steps.log-message.output }}

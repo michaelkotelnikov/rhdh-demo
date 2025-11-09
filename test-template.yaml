@@ -1,0 +1,22 @@
+name: hello-template
+description: A template that prints 'hello'
+version: 1.0
+parameters:
+  - name: language
+    description: The programming language to use
+    type: string
+    default: python
+actions:
+  - name: print-hello
+    description: Print 'hello' to the console
+    type: script
+    script: |
+      {{#if language == 'python'}}
+      print('hello')
+      {{/if}}
+      {{#if language == 'java'}}
+      System.out.println('hello');
+      {{/if}}
+      {{#if language == 'javascript'}}
+      console.log('hello');
+      {{/if}}
